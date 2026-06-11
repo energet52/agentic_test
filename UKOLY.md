@@ -70,6 +70,13 @@ Cíl: nakouknout pod kapotu — nástroje jsou jen obyčejné funkce.
 - [ ] **4b. `smaz_zebricek`** — nástroj na vynulování žebříčku. Schválně
       přemýšlej: jak napsat `description`, aby ho Claude nepoužil omylem?
 
+**Další nápady na vlastní nástroje** (vyber si, co tě baví):
+- `statistiky_hrace` — spočítá z `skore.json` průměr, počet her, nejlepší skóre
+- `denni_vyzva` — podle dnešního data vrátí "výzvu dne" (vždy stejnou pro daný den)
+- `nahodne_jmeno_hada` — vygeneruje vtipnou přezdívku ("Zmije Zdeněk", "Užovka Uršula")
+- `tip_dne` — vrátí programátorský tip nebo radu ke hře
+- `export_zebricku` — vyrobí z `skore.json` hezkou HTML stránku se žebříčkem
+
 **Pozor:** po každé změně serveru je potřeba restartovat Claude Code
 (nebo server přenačíst přes `/mcp`), aby se nové nástroje načetly.
 

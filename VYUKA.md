@@ -77,16 +77,35 @@ výsledek.
 
 **Kde bydlí:** `.claude/agents/<nazev>.md`
 
-**Naši dva agenti:**
+**Naši agenti:**
 
 | Agent | Role | Povolené nástroje |
 |---|---|---|
 | `tester-hry` | hledá bugy a okrajové případy | jen čtení (`Read`, `Grep`, `Glob`) |
 | `vysvetlovac` | vysvětluje kód jednoduše česky | jen čtení |
+| `kritik-vzhledu` | hodnotí, jak hra vypadá | jen čtení |
+| `kontrolor-pristupnosti` | ověřuje přístupnost (kontrast, klávesnice, mobil) | jen čtení |
 
 **Proč omezovat nástroje?** Tester má jen "čtecí" nástroje — takže
 ani omylem nemůže nic přepsat. To je bezpečnost i jasná role: tester
 testuje, nevyvíjí.
+
+### Agenti běžící PARALELNĚ ⚡⚡⚡
+
+Tahle je nejlepší: hlavní Claude umí pustit **víc agentů najednou**.
+Každý dostane svůj úkol, všichni makají současně a Claude pak jejich
+výsledky spojí. Je to jako poslat na hřiště celý tým místo jednoho hráče.
+
+Ukázku máš ve skillu **`/tym-revize`** — spustí naráz tři agenty
+(`tester-hry`, `kritik-vzhledu`, `kontrolor-pristupnosti`), každý kouká
+na hru z jiného úhlu, a ty dostaneš jeden společný přehled.
+
+Proč to jde bezpečně? Všichni tři mají jen čtecí nástroje — můžou radit,
+ale ne si navzájem přepisovat kód. (Kdyby uměli zapisovat, paralelní běh
+by byl nebezpečný — dva agenti by si mohli přepsat stejný soubor.)
+
+**Vyzkoušej:** napiš `/tym-revize` a sleduj, jak se rozjede víc agentů
+naráz.
 
 **Kdy se agent hodí víc než skill?**
 - když je úkol velký a "ušpinil" by hlavní konverzaci (projdi 20 souborů...)

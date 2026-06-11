@@ -63,6 +63,12 @@ Požádej agenta tester-hry, ať najde ve hře bugy.
 → Spustí se **agent** — samostatný pomocník, který prozkoumá kód a podá hlášení.
 
 ```
+/tym-revize
+```
+→ Spustí se **víc agentů NAJEDNOU (paralelně)** — každý kouká na hru z jiného
+úhlu (bugy, vzhled, přístupnost) a Claude ti dá jeden společný přehled.
+
+```
 Dej mi nápad, co do hry přidat.
 ```
 → Claude zavolá **nástroj** `napad_na_hru` z našeho MCP serveru.
