@@ -1,0 +1,126 @@
+/* ====================================================================
+   VZHLED HRY HAD
+   --------------------------------------------------------------------
+   Tady se nastavuje, jak hra VYPADÁ (barvy, písma, rozložení).
+   Logika hry (pohyb hada, skóre...) je v souboru snake.js.
+
+   TIP: Zkus v Claude Code napsat  /novy-skin neonová  — Claude tento
+   soubor upraví a hra dostane úplně nový kabát. 🎨
+   ==================================================================== */
+
+/* Proměnné = barvy na jednom místě. Změníš je tady, změní se všude. */
+:root {
+  --barva-pozadi: #1a1a2e;        /* pozadí celé stránky */
+  --barva-plochy: #0f0f1a;        /* pozadí herní plochy */
+  --barva-hada: #4ade80;          /* tělo hada */
+  --barva-hlavy: #22c55e;         /* hlava hada */
+  --barva-jidla: #f87171;         /* jídlo (jablko) */
+  --barva-textu: #e5e7eb;         /* běžný text */
+  --barva-zvyrazneni: #facc15;    /* skóre, nadpisy */
+  --barva-mrizky: #1e1e30;        /* jemná mřížka na ploše */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--barva-pozadi);
+  color: var(--barva-textu);
+  font-family: "Courier New", monospace;  /* retro vzhled jako staré počítače */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-wrapper {
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  color: var(--barva-zvyrazneni);
+  letter-spacing: 0.3em;
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.4);
+}
+
+/* HUD = "Head-Up Display", lišta se skóre nad hrou */
+.hud {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: 0 auto 8px;
+  font-size: 1.1rem;
+}
+
+.hud-item span {
+  color: var(--barva-zvyrazneni);
+  font-weight: bold;
+}
+
+/* Rám kolem herní plochy — overlay se umisťuje vůči němu */
+.board {
+  position: relative;
+  display: inline-block;
+}
+
+canvas {
+  background-color: var(--barva-plochy);
+  border: 3px solid var(--barva-hada);
+  border-radius: 8px;
+  box-shadow: 0 0 24px rgba(74, 222, 128, 0.25);
+  display: block;
+}
+
+/* Překryvná obrazovka přes hru (úvod a game over) */
+.overlay {
+  /* roztáhne se přesně přes celý .board (tedy přes canvas) */
+  position: absolute;
+  inset: 0;
+  background-color: rgba(15, 15, 26, 0.88);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Třídu .hidden přidáváme/odebíráme JavaScriptem — tím se overlay schová */
+.overlay.hidden {
+  display: none;
+}
+
+.overlay h2 {
+  color: var(--barva-zvyrazneni);
+  font-size: 2rem;
+  letter-spacing: 0.2em;
+}
+
+#startButton {
+  background-color: var(--barva-hada);
+  color: var(--barva-plochy);
+  border: none;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#startButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(74, 222, 128, 0.5);
+}
+
+.controls-hint {
+  margin-top: 12px;
+  opacity: 0.6;
+  font-size: 0.9rem;
+}

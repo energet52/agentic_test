@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Had (Snake) — Pavlův první projekt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-wrapper">
+    <h1>🐍 HAD</h1>
+
+    <!-- Horní lišta se skóre -->
+    <div class="hud">
+      <div class="hud-item">Skóre: <span id="score">0</span></div>
+      <div class="hud-item">Rekord: <span id="highScore">0</span></div>
+    </div>
+
+    <!-- Herní plocha + překryvná obrazovka (start / game over).
+         Jsou v jednom "rámu" (.board), aby overlay přesně seděl na canvas. -->
+    <div class="board">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <div id="overlay" class="overlay">
+        <h2 id="overlayTitle">HAD</h2>
+        <p id="overlayText">Stiskni MEZERNÍK nebo klikni na tlačítko</p>
+        <button id="startButton">▶ Hrát</button>
+      </div>
+    </div>
+
+    <p class="controls-hint">Ovládání: šipky ⬆️ ⬇️ ⬅️ ➡️ &nbsp;|&nbsp; Pauza: P</p>
+  </main>
+
+  <script src="snake.js"></script>
+</body>
+</html>

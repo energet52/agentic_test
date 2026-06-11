@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "had-server": {
+      "command": "node",
+      "args": ["mcp-server/server.js"]
+    }
+  }
+}
