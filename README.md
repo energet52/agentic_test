@@ -10,10 +10,20 @@ a kolem ní jsou připravené ukázky tří klíčových pojmů z Claude Code:
 > rozhodovat a kontrolovat** — Claude píše kód. Ale pozor: čím líp
 > kódu rozumíš, tím lepší věci spolu postavíte. 😉
 
+## 🎮 Hraj online
+
+Hra je nasazená na GitHub Pages — zahraj si rovnou v prohlížeči:
+**https://energet52.github.io/agentic_test/**
+
+(Web se sám aktualizuje po každém pushi do `main` — viz workflow
+`.github/workflows/deploy-pages.yml`, taky výuková ukázka: tomuhle se
+říká CI/CD, automatické nasazení.)
+
 ## 🚀 Jak začít (5 minut)
 
-1. **Spusť hru** — otevři `hra/index.html` v prohlížeči (stačí na něj
-   poklepat). Ovládání: šipky, `P` = pauza.
+1. **Spusť hru** — buď online (odkaz výše), nebo lokálně: otevři
+   `hra/index.html` v prohlížeči (stačí na něj poklepat).
+   Ovládání: šipky, `P` = pauza.
 
 2. **Spusť Claude Code** v kořenové složce tohoto projektu:
    ```bash

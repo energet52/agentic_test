@@ -1,0 +1,58 @@
+# Nasazení hry Had na GitHub Pages
+# ----------------------------------
+# Tenhle "workflow" je návod pro GitHub: po každém pushi do větve main
+# vezme složku hra/ a zveřejní ji jako web. Výsledek najdeš na adrese:
+#   https://energet52.github.io/agentic_test/
+#
+# Je to ukázka tzv. CI/CD — automatizace, která se spustí sama na serveru
+# GitHubu (ne u tebe na počítači), když něco nahraješ.
+
+name: Nasadit hru na GitHub Pages
+
+on:
+  # Spustí se při pushi do main...
+  push:
+    branches: [main]
+  # ...a taky se dá spustit ručně tlačítkem v záložce "Actions" na GitHubu.
+  workflow_dispatch:
+
+# Oprávnění, která workflow potřebuje, aby směl web publikovat
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Ať vždy běží jen jedno nasazení naráz
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # 1. Stáhne obsah repozitáře na server
+      - name: Stáhnout kód
+        uses: actions/checkout@v4
+
+      # 2. Zapne GitHub Pages (pokud ještě nejsou zapnuté) — díky enablement: true
+      #    nemusíš nic klikat v nastavení repozitáře.
+      - name: Nastavit Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # 3. Zabalí složku hra/ jako "artefakt", který se bude publikovat.
+      #    Kdybys chtěl publikovat něco jiného, změň path.
+      - name: Zabalit složku hra/
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./hra
+
+      # 4. Nasadí artefakt na Pages — a je to online!
+      - name: Nasadit na Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
