@@ -85,10 +85,18 @@ výsledek.
 | `vysvetlovac` | vysvětluje kód jednoduše česky | jen čtení |
 | `kritik-vzhledu` | hodnotí, jak hra vypadá | jen čtení |
 | `kontrolor-pristupnosti` | ověřuje přístupnost (kontrast, klávesnice, mobil) | jen čtení |
+| `dokumentarista` | píše a upravuje dokumentaci | čtení **i zápis** (`Write`, `Edit`) |
 
-**Proč omezovat nástroje?** Tester má jen "čtecí" nástroje — takže
-ani omylem nemůže nic přepsat. To je bezpečnost i jasná role: tester
-testuje, nevyvíjí.
+**Proč omezovat nástroje?** Většina našich agentů má jen "čtecí" nástroje
+— takže ani omylem nemůžou nic přepsat. To je bezpečnost i jasná role:
+tester testuje, nevyvíjí.
+
+**A naopak — `dokumentarista` zápis potřebuje.** Jeho úkol je vytvářet
+soubory s dokumentací, takže dostal nástroje `Write` a `Edit`. Tady je
+důležité pravidlo: **agentovi dej jen ty nástroje, které ke své práci
+opravdu potřebuje** — ne víc. Dokumentarista smí psát `.md` soubory, ale
+v jeho zadání stojí, že nemá sahat do kódu hry. Čím užší role, tím
+bezpečnější agent.
 
 ### Agenti běžící PARALELNĚ ⚡⚡⚡
 
