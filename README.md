@@ -85,4 +85,13 @@ Ulož mi do žebříčku skóre 15, jmenuju se Pavel.
 2. Otevři **`UKOLY.md`** — čekají tam na tebe 4 úrovně úkolů, od vylepšení
    hry až po napsání vlastního nástroje.
 
+## 🏋️ Velký úkol: tvůj vlastní produkt
+
+Až zvládneš úkoly u Hada, čeká tě **závěrečný projekt** — postavit si
+**vlastní opravdový produkt** (appku pro cvičící v posilovně) a zveřejnit
+ho na internetu na vlastní doméně, s plnou AI-agentní výbavou (tým agentů,
+skills, vlastní nástroj, CI pipeline, nasazení na Azure).
+
+👉 **Celé zadání najdeš v [`PROJEKT.md`](PROJEKT.md).**
+
 Hodně štěstí a bav se! 🎮
